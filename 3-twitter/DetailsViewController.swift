@@ -37,8 +37,18 @@ class DetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    @IBAction func replyPressed(sender: AnyObject) {
+        println("replyPressed")
+    }
+    @IBAction func retweetPressed(sender: AnyObject) {
+        println("retweetPressed")
+
+    }
+    @IBAction func starPressed(sender: AnyObject) {
+        println("starPressed")
+
+    }
     /*
     // MARK: - Navigation
 

@@ -197,22 +197,67 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaW-mc-IZ6">
-                                <rect key="frame" x="16" y="179" width="29" height="16"/>
+                                <rect key="frame" x="16" y="179" width="28.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpR-9K-FIs">
+                                <rect key="frame" x="73" y="209" width="29" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="NdY-Mp-sxj"/>
+                                    <constraint firstAttribute="height" constant="25" id="sW1-vd-iST"/>
+                                </constraints>
+                                <state key="normal" image="reply">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="replyPressed:" destination="2in-hZ-6A5" eventType="touchUpInside" id="NGj-OT-FaJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcy-Vh-9xI">
+                                <rect key="frame" x="145" y="209" width="29" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="DU1-ih-IJf"/>
+                                    <constraint firstAttribute="height" constant="25" id="wJ4-LR-oMJ"/>
+                                </constraints>
+                                <state key="normal" image="retweet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="retweetPressed:" destination="2in-hZ-6A5" eventType="touchUpInside" id="WoG-sB-9Bm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pC-ic-SsM">
+                                <rect key="frame" x="217.5" y="209" width="29" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="Lf5-rj-dvY"/>
+                                    <constraint firstAttribute="height" constant="25" id="QSq-lr-fHc"/>
+                                </constraints>
+                                <state key="normal" image="star">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="starPressed:" destination="2in-hZ-6A5" eventType="touchUpInside" id="S76-xg-b4y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SUh-zv-SDJ" firstAttribute="leading" secondItem="wYf-V6-Hzc" secondAttribute="trailing" constant="8" id="3un-8M-M1f"/>
                             <constraint firstItem="Mm3-cZ-3bi" firstAttribute="leading" secondItem="Zka-Fn-CoN" secondAttribute="leading" constant="16" id="4az-Js-RoQ"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mm3-cZ-3bi" secondAttribute="trailing" constant="16" id="F0V-0c-sZL"/>
+                            <constraint firstItem="9pC-ic-SsM" firstAttribute="top" secondItem="t41-vP-ogr" secondAttribute="bottom" constant="145" id="QAL-so-M6u"/>
                             <constraint firstItem="wYf-V6-Hzc" firstAttribute="leading" secondItem="Zka-Fn-CoN" secondAttribute="leading" constant="16" id="SuN-zk-vGP"/>
+                            <constraint firstItem="Qcy-Vh-9xI" firstAttribute="top" secondItem="t41-vP-ogr" secondAttribute="bottom" constant="145" id="TvE-te-r7b"/>
                             <constraint firstItem="BaW-mc-IZ6" firstAttribute="top" secondItem="Mm3-cZ-3bi" secondAttribute="bottom" constant="16" id="Uce-yV-ekk"/>
+                            <constraint firstItem="Qcy-Vh-9xI" firstAttribute="leading" secondItem="NpR-9K-FIs" secondAttribute="trailing" constant="43" id="Uki-W9-NYE"/>
                             <constraint firstItem="BaW-mc-IZ6" firstAttribute="leading" secondItem="Zka-Fn-CoN" secondAttribute="leading" constant="16" id="adN-7g-Brd"/>
+                            <constraint firstItem="NpR-9K-FIs" firstAttribute="top" secondItem="SUh-zv-SDJ" secondAttribute="bottom" constant="84" id="cyj-CJ-sza"/>
                             <constraint firstItem="wYf-V6-Hzc" firstAttribute="top" secondItem="t41-vP-ogr" secondAttribute="bottom" constant="15" id="i8r-Gq-zb8"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SUh-zv-SDJ" secondAttribute="trailing" constant="12" id="k3U-b1-Lep"/>
+                            <constraint firstItem="9pC-ic-SsM" firstAttribute="leading" secondItem="Qcy-Vh-9xI" secondAttribute="trailing" constant="43" id="lPm-sj-9so"/>
+                            <constraint firstAttribute="centerX" secondItem="Qcy-Vh-9xI" secondAttribute="centerX" id="ln6-xR-6Ce"/>
                             <constraint firstItem="Mm3-cZ-3bi" firstAttribute="top" secondItem="wYf-V6-Hzc" secondAttribute="bottom" constant="8" id="mdn-EB-0es"/>
                             <constraint firstItem="SUh-zv-SDJ" firstAttribute="top" secondItem="eec-QT-z76" secondAttribute="bottom" constant="8" id="vUZ-JJ-m3g"/>
                             <constraint firstItem="eec-QT-z76" firstAttribute="leading" secondItem="wYf-V6-Hzc" secondAttribute="trailing" constant="8" id="w9Q-kH-DRG"/>
@@ -328,6 +373,11 @@
             <point key="canvasLocation" x="1895" y="-48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reply" width="700" height="579"/>
+        <image name="retweet" width="682" height="534"/>
+        <image name="star" width="700" height="608"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
