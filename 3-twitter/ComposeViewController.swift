@@ -14,19 +14,38 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var tweet: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tweetTextView.delegate = self
         // Do any additional setup after loading the view.
-        var user = User.currentUser
+        
+        var user: User?
+        //REGULAR COMPOSE
+        if tweet == nil {
+            user = User.currentUser
+        }
+        else {
+            //HANDLE REPLY CASE
+            self.title = "Reply"
+            user = tweet?.user
+        }
+        
         if let pp = user?.profileImageUrl {
             let url = NSURL(string: pp)
             profileImageView.setImageWithURL(url)
         }
         
         nameLabel.text = user?.name
-        handleLabel.text = user?.screenname
+        if let screenname = user?.screenname {
+            handleLabel.text = "@\(screenname)"
+            if tweet != nil {
+                tweetTextView.text = "@\(screenname) "
+            }
+        }
     }
 
     @IBAction func cancelPressed(sender: AnyObject) {
@@ -35,17 +54,38 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func tweetPressed(sender: AnyObject) {
-        let tweet = self.tweetTextView.text
-        let dict: [String:AnyObject] = ["status": tweet]
-        TwitterClient.sharedInstance.tweetWithParams(dict, completion: { (error) -> () in
-            if error == nil {
-                println("success!")
-                
+        let tweet_text = self.tweetTextView.text
+        let dict: [String:AnyObject]?
+        if self.tweet == nil {
+            dict = ["status": tweet_text]
+            TwitterClient.sharedInstance.tweetWithParams(dict, completion: { (error) -> () in
+                if error == nil {
+                    println("compose success!")
+                    
+                }
+                else {
+                    
+                }
+            })
+        }
+        else {
+            if let tweet = self.tweet {
+                if let id_str = tweet.id_str {
+                    dict = ["status": tweet_text, "in_reply_to_status_id": id_str]
+                    TwitterClient.sharedInstance.tweetWithParams(dict, completion: { (error) -> () in
+                        if error == nil {
+                            println("reply success!")
+                            
+                        }
+                        else {
+                            
+                        }
+                    })
+                }
             }
-            else {
-                
-            }
-        })
+        }
+        
+
         dismissViewControllerAnimated(true, completion: nil)
 
     }

@@ -13,12 +13,14 @@ class Tweet: NSObject {
     var text: String?
     var createdAtString: String?
     var createdAt: NSDate?
-    var createdAtString2: String?
-
+    var id_str: String?
+    
+    
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
+        id_str = dictionary["id_str"] as? String
         
         //Formatters are really expensive... can make a lazy property. Only gets triggered when you really need it.
         var formatter = NSDateFormatter()

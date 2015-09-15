@@ -43,20 +43,53 @@ class DetailsViewController: UIViewController {
     }
     @IBAction func retweetPressed(sender: AnyObject) {
         println("retweetPressed")
+        if let id_str = self.tweet?.id_str {
+            let dict: [String: String] = ["id": id_str]
+
+            TwitterClient.sharedInstance.retweetWithParams(dict , completion: { (error) -> () in
+                if error == nil {
+                    println("retweet OK!")
+                }
+                else {
+                    println("\(error)")
+                }
+            })
+        }
+
 
     }
     @IBAction func starPressed(sender: AnyObject) {
         println("starPressed")
+        if let id_str = self.tweet?.id_str {
+            let dict: [String: String] = ["id": id_str]
+            
+            TwitterClient.sharedInstance.starWithParams(dict , completion: { (error) -> () in
+                if error == nil {
+                    println("star OK!")
+                }
+                else {
+                    println("\(error)")
+                }
+            })
+        }
 
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "deetTOcompose"
+        {
+            println("seguing deetTOcompose")
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let composeVC = navigationController.topViewController as! ComposeViewController
+            composeVC.tweet = self.tweet
+        }
     }
-    */
+    
 
 }

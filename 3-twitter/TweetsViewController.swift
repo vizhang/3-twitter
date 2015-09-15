@@ -93,6 +93,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 destinationVC.tweet = tweet
             }
         }
+        
+        else if segue.identifier == "tweetTOcompose"
+        {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let composeVC = navigationController.topViewController as! ComposeViewController
+            composeVC.tweet = nil
+        }
     
     }
     
