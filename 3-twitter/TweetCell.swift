@@ -18,9 +18,9 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            nameLabel.text = tweet.user?.name
+            nameLabel?.text = tweet.user?.name
             if let s = tweet.user?.screenname {
-                handleLabel.text = "@\(s)"
+                handleLabel?.text = "@\(s)"
             }
             dateLabel.text = tweet.createdAtString
             tweetLabel.text = tweet.text
@@ -34,8 +34,17 @@ class TweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        profileImageView.layer.cornerRadius = 3
+        profileImageView.clipsToBounds = true
+        
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.size.width
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -19,22 +19,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
+
+        
+        //OLD TWITTER CODE
+        
         //Check if there is a current user
         if User.currentUser != nil {
-            //force it to go into logged-in screen
-            println("Current user detected.")
-            /*
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as? UIViewController
-            window?.rootViewController = vc //is the arrow in storybaord
-            */
-            var nc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavController") as? UINavigationController
-            window?.rootViewController = nc //is the arrow in storybaord
+            //force it to go into hamburgers
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+            
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
+            window?.rootViewController = hamburgerViewController //force the change
             
         }
         else {
             println("Not detecting current user.")
 
         }
+        
+        
         
         return true
     }
